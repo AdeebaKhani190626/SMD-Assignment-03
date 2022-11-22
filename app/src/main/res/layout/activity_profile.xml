@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <!-- Top Bar   -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/screen22_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/screens_7_arrow_02"></ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="60dp"></TextView>
+
+        <Button
+            android:id="@+id/savechanges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="310dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/black"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="#d4b300"
+            android:textSize="20dp"></Button>
+    </RelativeLayout>
+
+    <!-- Main   -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circularimage"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/gradient_circle"
+            app:civ_border_color="#d4b300"
+            app:civ_border_width="4dp" />
+
+        <ImageView
+            android:id="@+id/imageAdd"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignEnd="@id/circularimage"
+            android:layout_marginTop="250dp"
+            android:src="@drawable/ic_baseline_add_a_photo_24"></ImageView>
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/circularimage"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rectangle_rounded"
+            android:hint="Enter Updated Name"
+            android:paddingLeft="20dp"
+            android:textColorHint="#d4b300"
+            android:textSize="20dp"></EditText>
+
+        <EditText
+            android:id="@+id/gender"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/name"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rectangle_rounded"
+            android:hint="Enter Updated Gender"
+            android:paddingLeft="20dp"
+            android:textColorHint="#d4b300"
+            android:textSize="20dp"></EditText>
+
+        <EditText
+            android:id="@+id/bio"
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            android:hint="Enter anything as your Bio"
+            android:layout_marginLeft="30dp"
+            android:textColorHint="#d4b300"
+            android:textSize="20dp"
+            android:layout_marginTop="40dp"
+            android:paddingLeft="20dp"
+            android:background="@drawable/rectangle_rounded"
+            android:layout_below="@id/gender"></EditText>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectingAccount"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- Sign In   -->
+        <Button
+            android:id="@+id/signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/black"
+            android:text="Sign In"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="20sp"></Button>
+
+        <!-- Logo   -->
+        <ImageView
+            android:id="@+id/musifyLogoUpdated"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:layout_below="@id/signin"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/logo_updated"></ImageView>
+
+        <!-- Logo Name   -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Musify"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:layout_below="@id/musifyLogoUpdated"
+            android:layout_marginLeft="45dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/facebook"
+            android:layout_width="365dp"
+            android:layout_height="70dp"
+            android:background="@drawable/rectangle_rounded"
+            android:text="Continue with Facebook"
+            android:paddingLeft="20dp"
+            android:textAllCaps="false"
+            android:textColor="#4267b2"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="22dp"
+            android:textSize="20sp">
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <ImageView
+            android:id="@+id/fb"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/screens_4_fb"
+            android:layout_alignStart="@id/facebook"
+            android:layout_marginTop="115dp"
+            android:layout_marginLeft="20dp"
+            android:elevation="60dp"></ImageView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/google"
+            android:layout_width="365dp"
+            android:layout_height="70dp"
+            android:background="@drawable/rectangle_rounded"
+            android:text="Continue with Google"
+            android:textAllCaps="false"
+            android:textColor="#db4437"
+            android:textSize="20sp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/facebook"></androidx.appcompat.widget.AppCompatButton>
+
+        <ImageView
+            android:id="@+id/goog"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/screens_4_google"
+            android:elevation="60dp"
+            android:layout_alignStart="@id/facebook"
+            android:layout_marginTop="220dp"
+            android:layout_marginLeft="20dp"></ImageView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/createaccount"
+            android:layout_width="365dp"
+            android:layout_height="70dp"
+            android:background="@drawable/rectangle_rounded"
+            android:text="Create Account"
+            android:textAllCaps="false"
+            android:textColor="#d4b300"
+            android:textSize="20sp"
+            android:layout_below="@id/google"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="22dp"
+            ></androidx.appcompat.widget.AppCompatButton>
+    </RelativeLayout>
+
+</LinearLayout>

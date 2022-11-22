@@ -58,7 +58,7 @@
             android:hint="Name"
             android:textColorHint="#d4b300"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             android:textColor="#d4b300"
             android:paddingLeft="20dp"
             android:backgroundTint="#f6f6f6"
@@ -111,14 +111,25 @@
             android:textColor="#d4b300"
             android:textSize="18sp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="20dp"></TextView>
+            android:layout_marginTop="15dp"></TextView>
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal"
         android:gravity="center">
+
+        <View
+            android:layout_width="52dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/neon_selected"
+            android:id="@+id/neon_g1"
+            android:visibility="invisible"
+            android:elevation="40dp">
+        </View>
 
         <ImageView
             android:layout_width="70dp"
@@ -128,13 +139,38 @@
             android:src="@drawable/screens_2_gd1"
             android:id="@+id/g1"></ImageView>
 
+        <View
+            android:layout_width="52dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/neon_selected"
+            android:id="@+id/neon_g2"
+            android:visibility="invisible"
+            android:elevation="40dp"
+            android:layout_toEndOf="@id/g1">
+        </View>
+
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/screens_2_gd2"
-            android:id="@+id/g2"></ImageView>
+            android:id="@+id/g2"
+            android:layout_toEndOf="@+id/g1"></ImageView>
+
+        <View
+            android:layout_width="52dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/neon_selected"
+            android:id="@+id/neon_g3"
+            android:visibility="invisible"
+            android:elevation="40dp"
+            android:layout_toEndOf="@id/g2">
+        </View>
 
         <ImageView
             android:layout_width="80dp"
@@ -142,8 +178,9 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/screens_2_gd3"
-            android:id="@+id/g3"></ImageView>
-    </LinearLayout>
+            android:id="@+id/g3"
+            android:layout_toEndOf="@id/g2"></ImageView>
+    </RelativeLayout>
 
     <CheckBox
         android:id="@+id/checkbox"

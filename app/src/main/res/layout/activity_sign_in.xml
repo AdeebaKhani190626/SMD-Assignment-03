@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignIn"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- Sign In   -->
+        <Button
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/black"
+            android:text="Sign Up"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="20sp"></Button>
+
+        <!-- Logo   -->
+        <ImageView
+            android:id="@+id/musifyLogoUpdated"
+            android:layout_width="140dp"
+            android:layout_height="120dp"
+            android:layout_below="@id/signup"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/logo_updated"></ImageView>
+
+        <!-- Logo Name   -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Musify"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:layout_below="@id/musifyLogoUpdated"
+            android:layout_marginLeft="45dp"/>
+
+        <!-- First Entry -->
+        <EditText
+            android:id="@+id/input_email"
+            android:layout_width="355dp"
+            android:layout_height="55dp"
+            android:layout_below="@id/textView"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/rectangle_rounded"
+            android:hint="Email"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:textColor="#d4b300"
+            android:textColorHint="#d4b300" />
+
+        <!-- Second Entry -->
+        <View
+            android:id="@+id/myRectangleView3"
+            android:layout_width="355dp"
+            android:layout_height="55dp"
+            android:background="@drawable/rectangle_rounded"
+            android:layout_below="@id/input_email"
+            android:layout_marginTop="50dp"
+            android:layout_centerInParent="true">
+        </View>
+
+        <EditText
+            android:id="@+id/input_pass"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/input_email"
+            android:layout_alignStart="@id/myRectangleView3"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="55dp"
+            android:backgroundTint="#f6f6f6"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="#d4b300"
+            android:textColorHint="#d4b300" />
+
+        <!--  Show Pass  -->
+        <TextView
+            android:id="@+id/showpass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/input_email"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="65dp"
+            android:layout_toEndOf="@id/input_pass"
+            android:backgroundTint="#f6f6f6"
+            android:text="Show"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#d4b300"
+            android:textSize="18sp"></TextView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signin"
+            android:layout_width="365dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/input_pass"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button_rounded"
+            android:text="Sign In"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"></androidx.appcompat.widget.AppCompatButton>
+
+        <Button
+            android:id="@+id/fogotpass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signin"
+            android:layout_centerInParent="true"
+            android:backgroundTint="@color/black"
+            android:text="Forgot your password?"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#d4b300"
+            android:textSize="20sp"
+            android:textStyle="bold"></Button>
+    </RelativeLayout>
+
+</LinearLayout>
