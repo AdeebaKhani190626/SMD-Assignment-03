@@ -157,7 +157,7 @@
             android:textSize="15dp"></EditText>
 
         <ImageView
-            android:id="@+id/mic"
+            android:id="@+id/send"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
@@ -168,10 +168,10 @@
             android:src="@drawable/ic_baseline_send_24"></ImageView>
 
         <ImageView
-            android:id="@+id/send"
+            android:id="@+id/mic"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_toRightOf="@+id/mic"
+            android:layout_toRightOf="@+id/send"
             android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
             android:scaleType="center"

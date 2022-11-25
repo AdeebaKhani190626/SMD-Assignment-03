@@ -34,6 +34,7 @@ public class IndividualChat extends AppCompatActivity {
     ImageView dp;
     TextView name;
     ImageView screenShot;
+    ImageView selectMultipleImages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public class IndividualChat extends AppCompatActivity {
 
         dp = findViewById(R.id.imageViewDp);
         name = findViewById(R.id.nameIndividual);
+        selectMultipleImages = findViewById(R.id.image);
 
         Bundle b = getIntent().getExtras();
         name.setText(b.getString("name"));
@@ -56,6 +58,14 @@ public class IndividualChat extends AppCompatActivity {
             public void onClick(View v) {
                 
                 SaveImage();
+            }
+        });
+
+        selectMultipleImages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(IndividualChat.this,SelectingMultipleImages.class);
+                startActivity(intent);
             }
         });
     }

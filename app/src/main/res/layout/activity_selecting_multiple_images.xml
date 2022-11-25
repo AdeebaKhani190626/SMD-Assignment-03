@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectingMultipleImages"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:background="@drawable/one_side_rounded_yellow_home_page">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="Selecting Images"
+            android:textColor="#ffff"
+            android:textSize="30sp"
+            android:textStyle="bold"></TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6">
+        <ImageSwitcher
+            android:id="@+id/imageSelctedMultiple"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:layout_marginLeft="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <!--Previous-->
+        <ImageView
+            android:layout_alignParentLeft="true"
+            android:id="@+id/previousImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="23dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_baseline_arrow_back_ios_24" />
+
+        <!--Next-->
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:id="@+id/nextImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_baseline_arrow_forward_ios_24" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Total Images: "
+            android:layout_marginLeft="20dp"
+            android:gravity="left"
+            android:textColor="#FFFF"
+            android:textSize="22sp" />
+        <TextView
+            android:id="@+id/textSelectedImages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textColor="#FFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/sendSelectedImages"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/button_rounded"
+            android:scaleType="center"
+            android:src="@drawable/ic_baseline_send_24"></ImageView>
+    </RelativeLayout>
+
+</LinearLayout>
