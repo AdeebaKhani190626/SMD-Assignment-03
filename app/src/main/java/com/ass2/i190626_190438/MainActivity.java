@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,7 +24,17 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(intent);
+                SharedPreferences sharedPreferences = getSharedPreferences(SignIn.PREFS_NAME,0);
+                boolean hasLoggedIn = sharedPreferences.getBoolean("hasLoggedIn",false);
+
+                if (hasLoggedIn) {
+                    Intent intent1 = new Intent(MainActivity.this, HomePage.class);
+                    startActivity(intent1);
+                    finish();
+                } else {
+                    startActivity(intent);
+                    finish();
+                }
             }
         },5000);
     }

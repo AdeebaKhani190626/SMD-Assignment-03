@@ -68,7 +68,7 @@
             android:layout_height="55dp"
             android:background="@drawable/rectangle_rounded"
             android:layout_below="@id/input_email"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_centerInParent="true">
         </View>
 
@@ -79,7 +79,7 @@
             android:layout_below="@id/input_email"
             android:layout_alignStart="@id/myRectangleView3"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="35dp"
             android:backgroundTint="#f6f6f6"
             android:hint="Password"
             android:inputType="textPassword"
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/input_email"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="65dp"
+            android:layout_marginTop="45dp"
             android:layout_toEndOf="@id/input_pass"
             android:backgroundTint="#f6f6f6"
             android:text="Show"

@@ -1,13 +1,18 @@
 package com.ass2.i190626_190438;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+
+import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -35,6 +40,7 @@ public class Profile extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -44,6 +50,13 @@ public class Profile extends AppCompatActivity {
             if (requestCode == GALLERY_REQ_CODE)
             {
                 setProfile.setImageURI(data.getData());
+                Bitmap dp=null;
+                try {
+                    dp=MediaStore.Images.Media.getBitmap(getContentResolver(),data.getData());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
         }
     }

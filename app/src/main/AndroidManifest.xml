@@ -21,9 +21,6 @@
             android:name=".SelectingAccount"
             android:exported="false" />
         <activity
-            android:name=".IndividualChat"
-            android:exported="false" />
-        <activity
             android:name=".HomePage"
             android:exported="false" />
         <activity

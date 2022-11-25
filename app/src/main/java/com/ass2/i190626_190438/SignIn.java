@@ -3,6 +3,7 @@ package com.ass2.i190626_190438;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.method.HideReturnsTransformationMethod;
@@ -26,18 +27,22 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class SignIn extends AppCompatActivity {
 
+    public static String PREFS_NAME="MyPrefsFile";
     private EditText password,email;
     int count = 0;
     TextView showpass;
     Button forgot;
     String em,pass;
-    private String URL = "http://192.168.18.107/smd-assignment03/login.php";
-    private String URL2 = "http://192.168.18.107/smd-assignment03/forgotPassword.php";
+    private String URL = "http://192.168.0.105/smd-assignment03/login.php";
+    private String URLPass = "http://192.168.0.105/smd-assignment03/forgotPassword.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,18 +72,26 @@ public class SignIn extends AppCompatActivity {
 
                 if (checks)
                 {
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, URL2,
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, URLPass,
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
 
-                                    if (response.equals("SUCCESS")) {
-                                        Log.d("Forgot", "Success!!!");
-                                        Toast.makeText(SignIn.this, "Forgot Success!",Toast.LENGTH_LONG).show();
+                                    try {
+                                        JSONObject obj=new JSONObject(response);
+                                        if(obj.getInt("code") == 1)
+                                        {
+                                            password.setText(obj.getString("password"));
+                                            Toast.makeText(SignIn.this, "Password Issue Resolved",Toast.LENGTH_LONG).show();
+                                        }
+                                        else{
+                                            Toast.makeText(SignIn.this, obj.get("msg").toString(),Toast.LENGTH_LONG
+                                            ).show();
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
 
-                                    } else if (response.equals("FAILURE")) {
-                                        Log.d("Forgot", "Failure!!!");
-                                        Toast.makeText(SignIn.this, "Forgot Failure!",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(SignIn.this, "Incorrect JSON",Toast.LENGTH_LONG).show();
                                     }
                                 }
                             }, new Response.ErrorListener() {
@@ -124,19 +137,36 @@ public class SignIn extends AppCompatActivity {
                                 @Override
                                 public void onResponse(String response) {
 
-                                    if (response.equals("Success")) {
-                                        Log.d("SignUp", "Success!!!");
-                                        Toast.makeText(SignIn.this, "SignIn Success!",Toast.LENGTH_LONG).show();
+                                    try {
+                                        JSONObject obj=new JSONObject(response);
+                                        if(obj.getInt("code") == 1)
+                                        {
+                                            if (obj.getString("email").equals(em) && obj.getString("password").equals(pass))
+                                            {
+                                                Toast.makeText(SignIn.this, "SignIn Success!",Toast.LENGTH_LONG).show();
+                                                SharedPreferences sharedPreferences = getSharedPreferences(SignIn.PREFS_NAME,0);
+                                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                                editor.putBoolean("hasLoggedIn",true);
+                                                editor.commit();
 
-                                    } else if (response.equals("Failure")) {
-                                        Log.d("SignUp", "Failure!!!");
-                                        Toast.makeText(SignIn.this, "SignUp Failure!",Toast.LENGTH_LONG).show();
+                                                startActivity(intent);
+                                                finish();
+                                            }
+                                        }
+                                        else{
+                                            Toast.makeText(SignIn.this, obj.get("msg").toString(),Toast.LENGTH_LONG
+                                            ).show();
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+
+                                        Toast.makeText(SignIn.this, "Incorrect JSON",Toast.LENGTH_LONG).show();
                                     }
                                 }
                             }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Log.d("SignUp Error", "Not Happening!!!");
+                            Log.d("SignIn Error", "Not Happening!!!");
                             Toast.makeText(SignIn.this, error.toString().trim(),Toast.LENGTH_LONG).show();
                         }
                     }) {
@@ -150,8 +180,6 @@ public class SignIn extends AppCompatActivity {
                     };
                     RequestQueue requestQueue = Volley.newRequestQueue(SignIn.this);
                     requestQueue.add(stringRequest);
-                    Toast.makeText(SignIn.this, "SignIn Success!",Toast.LENGTH_LONG).show();
-                    startActivity(intent);
                 }
             }
         });

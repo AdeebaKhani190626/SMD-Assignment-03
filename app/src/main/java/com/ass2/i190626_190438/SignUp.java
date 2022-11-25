@@ -41,7 +41,7 @@ public class SignUp extends AppCompatActivity {
     String gender="";
     String terms="";
     String n,em,pass;
-    private String URL = "http://192.168.18.107/smd-assignment03/signup.php";
+    private String URL = "http://192.168.0.105/smd-assignment03/signup.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,12 +107,29 @@ public class SignUp extends AppCompatActivity {
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
+                                    try {
+                                        JSONObject obj=new JSONObject(response);
+                                        if(obj.getInt("code")==1)
+                                        {
+                                            Toast.makeText(SignUp.this, "SignUp Success!",Toast.LENGTH_LONG).show();
+                                            Intent intent = new Intent(SignUp.this, Profile.class);
+                                            finish();
+                                        }
+                                        else{
+                                            Toast.makeText(
+                                                    SignUp.this,
+                                                    obj.get("msg").toString()
+                                                    ,Toast.LENGTH_LONG
+                                            ).show();
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
 
-                                    if ("SUCCESS".equals(response)) {
-                                        Toast.makeText(SignUp.this, "SignUp Success!!!", Toast.LENGTH_LONG).show();
-
-                                    } else if (response.equals("FAILURE")) {
-                                        Toast.makeText(SignUp.this, "SignUp Failure!!!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(
+                                                SignUp.this,
+                                                "Incorrect JSON"
+                                                ,Toast.LENGTH_LONG
+                                        ).show();
                                     }
                                 }
                             }, new Response.ErrorListener() {
@@ -133,8 +150,6 @@ public class SignUp extends AppCompatActivity {
                     };
                     RequestQueue requestQueue = Volley.newRequestQueue(SignUp.this);
                     requestQueue.add(stringRequest);
-                    Toast.makeText(SignUp.this, "SignUp Success!",Toast.LENGTH_LONG).show();
-                    startActivity(intent);
                 }
             }
         });
