@@ -59,19 +59,14 @@ public class HomePage extends AppCompatActivity {
                 int position = tab.getPosition();
 
                 if (position == 0) {
-                    //Toast.makeText(HomePage.this, "Tab 1", Toast.LENGTH_LONG).show();
                     replaceFragment(new MessagesTabLayout());
                 } if (position == 1) {
-                    //Toast.makeText(HomePage.this, "Tab 2", Toast.LENGTH_LONG).show();
                     replaceFragment(new CallTabLayout());
                 } if (position == 2) {
-                    //Toast.makeText(HomePage.this, "Tab 3", Toast.LENGTH_LONG).show();
                     replaceFragment(new AddTabLayout());
                 } if (position == 3) {
-                    //Toast.makeText(HomePage.this, "Tab 4", Toast.LENGTH_LONG).show();
                     replaceFragment(new UserTabLayout());
                 } if (position == 4) {
-                    //Toast.makeText(HomePage.this, "Tab 5", Toast.LENGTH_LONG).show();
                     replaceFragment(new SettingsTabLayout());
                 }
             }

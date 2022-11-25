@@ -1,10 +1,13 @@
 package com.ass2.i190626_190438;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,7 +34,7 @@ public class MyAdapterChatContact extends RecyclerView.Adapter<MyAdapterChatCont
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         ChatContact chatContact = chatContactArrayList.get(position);
         holder.name.setText(chatContact.name);
         holder.msg.setText(chatContact.msg);
@@ -39,6 +42,15 @@ public class MyAdapterChatContact extends RecyclerView.Adapter<MyAdapterChatCont
         holder.image.setImageResource(chatContact.dp);
 
         // apply open chat here
+        holder.row_chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, IndividualChat.class);
+                intent.putExtra("name",chatContactArrayList.get(position).getName());
+                intent.putExtra("image",chatContactArrayList.get(position).getDp());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -51,6 +63,7 @@ public class MyAdapterChatContact extends RecyclerView.Adapter<MyAdapterChatCont
         ImageView image;
         TextView name, msg, time;
         ImageView not_seen;
+        RelativeLayout row_chat;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +72,7 @@ public class MyAdapterChatContact extends RecyclerView.Adapter<MyAdapterChatCont
             msg = itemView.findViewById(R.id.messageDisp);
             time = itemView.findViewById(R.id.timeDisp);
             not_seen = itemView.findViewById(R.id.notChecked);
+            row_chat = itemView.findViewById(R.id.row_chatrv);
         }
     }
 }
