@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/black">
+
+            <TextView
+                android:id="@+id/nameContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toStartOf="@id/ibMessage"
+                android:layout_toLeftOf="@id/ibMessage"
+                android:text="Name"
+                android:textColor="#d4b300"
+                android:textSize="16sp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nameContact"
+                android:layout_marginLeft="10dp"
+                android:layout_toStartOf="@id/ibMessage"
+                android:layout_toLeftOf="@id/ibMessage"
+                android:text="03328333644"
+                android:textColor="#d4b300"
+                android:id="@+id/contactNumber"
+                android:textSize="14sp"></TextView>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/ibCall"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignTop="@id/ibMessage"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/ic_baseline_call_24"></androidx.appcompat.widget.AppCompatImageButton>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/ibMessage"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_toStartOf="@id/ibCall"
+                android:layout_toLeftOf="@id/ibCall"
+                android:background="@drawable/ic_baseline_mode_comment_24"></androidx.appcompat.widget.AppCompatImageButton>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

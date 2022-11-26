@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
@@ -27,13 +28,16 @@ public class HomePage extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager viewPager;
+    TextView mainHeading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        replaceFragment(new MessagesTabLayout());
+        //replaceFragment(new MessagesTabLayout());
+
+        mainHeading = findViewById(R.id.layoutMainHeading);
 
         /* Tab Layout - Bottom Bar */
         viewPager = findViewById(R.id.viewPager_id);
@@ -60,13 +64,18 @@ public class HomePage extends AppCompatActivity {
 
                 if (position == 0) {
                     replaceFragment(new MessagesTabLayout());
+                    mainHeading.setText("M E S S A G E S");
                 } if (position == 1) {
                     replaceFragment(new CallTabLayout());
+                    mainHeading.setText("      C A L L S     ");
                 } if (position == 2) {
                     replaceFragment(new AddTabLayout());
+                    mainHeading.setText("         A D D         ");
                 } if (position == 3) {
                     replaceFragment(new UserTabLayout());
+                    mainHeading.setText("       U S E R       ");
                 } if (position == 4) {
+                    mainHeading.setText(" S E T T I N G S ");
                     replaceFragment(new SettingsTabLayout());
                 }
             }
